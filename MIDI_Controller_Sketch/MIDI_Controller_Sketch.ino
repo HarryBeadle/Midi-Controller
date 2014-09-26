@@ -25,14 +25,14 @@ int State[4][4] =
   {0, 0, 0, 0}
 };
 
-// Send a note of pitch on though MIDI serial
+// Turn on a note of pitch though MIDI serial
 void noteOn(int pitch) {
   Serial.write(0x90); // Channel
   Serial.write(pitch); // Pitch
   Serial.write(0x45); // 100% Velocity
 }
 
-// turn off a note of pitch though MIDI serial
+// Turn off a note of pitch though MIDI serial
 void noteOff(int pitch) {
   Serial.write(0x90); // Channel
   Serial.write(pitch); // Pitch
@@ -40,7 +40,6 @@ void noteOff(int pitch) {
 }
 
 void setup() {
-  // Setup MIDI
   Serial.begin(31250);
   // Assign INPUTS to delcared pins
   for (int row = 0; row < 4; row ++){
